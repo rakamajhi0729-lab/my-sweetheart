@@ -1,0 +1,96 @@
+/* 🌸 Basic reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: linear-gradient(to bottom, #fff5f8, #ffeef3);
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* 🌸 Center content */
+.container {
+  position: relative;
+  z-index: 2;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.image {
+  width: 80%;
+  max-width: 300px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  color: #444;
+  font-size: 1.2rem;
+  white-space: pre-line;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 22px;
+  border: none;
+  border-radius: 20px;
+  background: #ff9bb3;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ff7fa0;
+}
+
+/* 🌸 PETALS */
+#petals {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Create multiple petals */
+#petals::before,
+#petals::after {
+  content: "";
+  position: absolute;
+  top: -10%;
+  width: 100%;
+  height: 120%;
+  background-image:
+    radial-gradient(circle at 10% 10%, #ffb7c5 0 6px, transparent 7px),
+    radial-gradient(circle at 30% 30%, #ffc1d1 0 5px, transparent 6px),
+    radial-gradient(circle at 50% 50%, #ff9fb8 0 6px, transparent 7px),
+    radial-gradient(circle at 70% 70%, #ffd6e0 0 5px, transparent 6px),
+    radial-gradient(circle at 90% 20%, #ffb0c2 0 6px, transparent 7px);
+  animation: fall 18s linear infinite;
+}
+
+#petals::after {
+  animation-delay: -9s;
+  opacity: 0.7;
+}
+
+/* Falling animation */
+@keyframes fall {
+  from {
+    transform: translateY(-10%) rotate(0deg);
+  }
+  to {
+    transform: translateY(110%) rotate(360deg);
+  }
+}
