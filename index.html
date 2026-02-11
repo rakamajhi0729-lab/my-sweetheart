@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For You 🤍</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<audio id="bgMusic" loop>
+  <source src="music1.mp3" type="audio/mpeg">
+</audio>
+
+<div id="petals"></div>
+
+<div class="container">
+  <img id="mainImage" src="love.jpg" class="image">
+  <h1 id="text">Hey my precious one 🌷</h1>
+  <button id="nextBtn">Next ➡️</button>
+</div>
+
+<script>
+const music = document.getElementById("bgMusic");
+const img = document.getElementById("mainImage");
+const text = document.getElementById("text");
+const btn = document.getElementById("nextBtn");
+
+let step = 0;
+
+const scenes = [
+  { img: "love.jpg", text: "Hii My Sweetheart 🌹💕" },
+  { img: "hug.jpg", text: "HAPPY HUG DAY ❤️🥰 My Love" },
+  { img: "hug1.gif", text: "Everything feels right when there's you to hug me 🤍" },
+  { img: "hug2.gif", text: "Every hug of yours heals me more than you know 💞" },
+  { img: "hug3.gif", text: "No matter what, I’m always right here for you ❤️ I love you forever 🫂💖" },
+
+  // 🌸 FINAL TEDDY ENDING
+  {
+    img: "teddy_end.png",
+    text: "If I were there right now,\nI’d wrap you in the softest hug,\nbring you warmth, comfort,\nand remind you that you’re deeply loved 🤍\n\nRest now… I’m right here with you 🧸"
+  }
+];
+
+btn.addEventListener("click", () => {
+  if (step === 0) {
+    music.play().catch(()=>{});
+  }
+
+  step++;
+
+  if (step < scenes.length) {
+    img.src = scenes[step].img;
+    text.innerText = scenes[step].text;
+  }
+
+  if (step === scenes.length - 1) {
+    btn.style.display = "none";
+  }
+});
+</script>
+
+</body>
+</html>
